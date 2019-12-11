@@ -12,6 +12,7 @@ FocalLoss faster-rcnn|81.8%|85.5%|83.6%
 ## Preparation
 生成文件目录
 ```
+chmod +x create_dic.sh
 ./create_dic.sh
 ```
 
@@ -24,21 +25,21 @@ FocalLoss faster-rcnn|81.8%|85.5%|83.6%
 ### Pretrained Model
 
 * VGG16: [北航云盘(推荐)](https://bhpan.buaa.edu.cn:443/link/191910ACBDABF091D791870D70FC5017),[百度网盘](https://pan.baidu.com/s/1lT0bnD_0pLh79aZVdHcZ-A)(pwd:dr2z)
-* 如果需要训练，请将Pretained Model放在/ML_Homework/data/pretrained_model/
+* 如果需要训练，请将Pretained Model放在/ML_Homework/data/pretrained_model
 
 ### Data Preparation
 
-* 请将标注文件放在/ML_Homework/data/VOCdevkit2007/VOC2007/Annotations/
-* 将图片放在/ML_Homework/data/VOCdevkit2007/VOC2007/JPEGImages/
-* 将txt文档放在/ML_Homework/data/VOCdevkit2007/VOC2007/ImageSets/Main/
+* 请将标注文件放在/ML_Homework/data/VOCdevkit2007/VOC2007/Annotations
+* 将图片放在/ML_Homework/data/VOCdevkit2007/VOC2007/JPEGImages
+* 将txt文档放在/ML_Homework/data/VOCdevkit2007/VOC2007/ImageSets/Main
 
 ### Our Model
 
 * Original faster-rcnn: [北航云盘](),[百度网盘]()
 * FocalLoss faster-rcnn: [北航云盘](https://bhpan.buaa.edu.cn:443/link/4160AAABF2630AA0295B81FAE782D289),[百度网盘](https://pan.baidu.com/s/1hYXTo8RvTqiSrQXp1xjuEg)(pwd:zilr)
-* 请将Model放在/ML_Homework/models/vgg16/pascal_voc/
+* 请将Model放在/ML_Homework/models/vgg16/pascal_voc
 
-## Compilation(if you want to train)
+## Compilation
 
 Please choose the right `-arch` in `make.sh` file, to compile the cuda code:
 
