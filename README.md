@@ -4,10 +4,12 @@ Unbalanced samples
 我们的初始模型使用了Faster-rcnn，之后对其进行了改进，将原来的分类Loss由cross_entropy(交叉熵)替换为FocalLoss，并根据样本比例调整参数，使得模型的准确率提升了一个百分点。
 ## Benchmark
 
-model | core | coreless | mAP
------|-----|-----|-----
-Original faster-rcnn|80.8%|84.6%|82.7%
-FocalLoss faster-rcnn|81.8%|85.5%|83.6%
+model | backbone | core | coreless | mAP
+-----|-----|-----|-----|-----
+Original faster-rcnn|VGG16|80.8%|84.6%|82.7%
+FocalLoss faster-rcnn|VGG16|81.8%|85.5%|83.6%
+Original faster-rcnn|ResNet101|82.1%|88.4%|85.3%
+FocalLoss faster-rcnn|ResNet101|84.5%|88.0%|86.3%
 
 ## Preparation
 生成文件目录
@@ -24,7 +26,8 @@ chmod +x create_dic.sh
 
 ### Pretrained Model
 
-* VGG16: [北航云盘(推荐)](https://bhpan.buaa.edu.cn:443/link/191910ACBDABF091D791870D70FC5017),[百度网盘](https://pan.baidu.com/s/1lT0bnD_0pLh79aZVdHcZ-A)(pwd:dr2z)
+* VGG16: [北航云盘](https://bhpan.buaa.edu.cn:443/link/191910ACBDABF091D791870D70FC5017),[百度网盘](https://pan.baidu.com/s/1lT0bnD_0pLh79aZVdHcZ-A)(pwd:dr2z)
+* ResNet101: [北航云盘](https://bhpan.buaa.edu.cn:443/link/4D31906DDD30BE16E9F9FE64EAC0D00E),[百度网盘](https://pan.baidu.com/s/15q0fBh4gRtvpcFAO1Anv4g)(pwd:fr82)
 * 如果需要训练，请将Pretained Model放在/ML_Homework/data/pretrained_model
 
 ### Data Preparation
@@ -35,8 +38,7 @@ chmod +x create_dic.sh
 
 ### Our Model
 
-* Original faster-rcnn: [北航云盘](),[百度网盘]()
-* FocalLoss faster-rcnn: [北航云盘](https://bhpan.buaa.edu.cn:443/link/4160AAABF2630AA0295B81FAE782D289),[百度网盘](https://pan.baidu.com/s/1hYXTo8RvTqiSrQXp1xjuEg)(pwd:zilr)
+* FocalLoss faster-rcnn(ResNet101): [北航云盘](https://bhpan.buaa.edu.cn:443/link/27C3DF0CEB64E8C4C9C0373BAE355B09),[百度网盘](https://pan.baidu.com/s/1HLT2HWZ8Ch_rvG-q94B2Gw)(pwd:bo9p)
 * 请将Model放在/ML_Homework/models/vgg16/pascal_voc
 
 ## Compilation
@@ -71,10 +73,10 @@ As pointed out in this [issue](https://github.com/jwyang/faster-rcnn.pytorch/iss
 
 ## Train
 ```
-CUDA_VISIBLE_DEVICES=$GPU_ID python trainval_net.py --dataset pascal_voc --net vgg16 --bs 4 --nw 4  --cuda
+CUDA_VISIBLE_DEVICES=$GPU_ID python trainval_net.py --net res101 --bs 4 --nw 4  --cuda
 ```
 
 ## Test
 ```
-python test_net.py --dataset pascal_voc --net vgg16 --checksession 1 --checkepoch 7 --checkpoint 2199  --cuda
+python test_net.py --net res101 --checksession 1 --checkepoch 8 --checkpoint 2199  --cuda
 ```
