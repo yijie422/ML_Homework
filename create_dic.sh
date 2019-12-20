@@ -14,6 +14,6 @@ cd ImageSets
 mkdir Main
 cd ../../../..
 cd models
-mkdir vgg16
-cd vgg16
+mkdir res101
+cd res101
 mkdir pascal_voc
