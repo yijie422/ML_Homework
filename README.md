@@ -39,7 +39,7 @@ chmod +x create_dic.sh
 ### Our Model
 
 * FocalLoss faster-rcnn(ResNet101): [北航云盘](https://bhpan.buaa.edu.cn:443/link/27C3DF0CEB64E8C4C9C0373BAE355B09),[百度网盘](https://pan.baidu.com/s/1HLT2HWZ8Ch_rvG-q94B2Gw)(pwd:bo9p)
-* 请将Model放在/ML_Homework/models/vgg16/pascal_voc
+* 请将Model放在/ML_Homework/models/res101/pascal_voc
 
 ## Compilation
 
