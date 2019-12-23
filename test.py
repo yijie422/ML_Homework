@@ -243,8 +243,8 @@ if __name__ == '__main__':
   print('Loaded Photo: {} images.'.format(num_images))
 
   # Open predicted file
-  fcore = open("../predicted_file/core.txt",'w')
-  fcoreless = open("../predicted_file/coreless.txt","w")
+  fcore = open("../predicted_file/det_test_带电芯充电宝.txt",'w')
+  fcoreless = open("../predicted_file/det_test_不带电芯充电宝.txt","w")
   while (num_images >= 0):
       total_tic = time.time()
       if webcam_num == -1:
