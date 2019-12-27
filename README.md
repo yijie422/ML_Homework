@@ -62,5 +62,5 @@ CUDA_VISIBLE_DEVICES=$GPU_ID python trainval_net.py --net res101 --bs 4 --nw 4  
 
 ## Test
 ```
-python test.py  --cuda
+python test.py --image_dir $images  --cuda
 ```
