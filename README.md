@@ -12,10 +12,10 @@ Original faster-rcnn|ResNet101|82.1%|88.4%|85.3%
 FocalLoss faster-rcnn|ResNet101|84.5%|88.0%|86.3%
 
 ## Preparation
-生成文件目录
+
 ```
-chmod +x create_dic.sh
-./create_dic.sh
+cd ML_Homework
+mkdir model
 ```
 
 ### Prerequisites
@@ -24,22 +24,10 @@ chmod +x create_dic.sh
 * Pytorch 0.4.0
 * CUDA 8.0 or higher
 
-### Pretrained Model
-
-* VGG16: [北航云盘](https://bhpan.buaa.edu.cn:443/link/191910ACBDABF091D791870D70FC5017),[百度网盘](https://pan.baidu.com/s/1lT0bnD_0pLh79aZVdHcZ-A)(pwd:dr2z)
-* ResNet101: [北航云盘](https://bhpan.buaa.edu.cn:443/link/4D31906DDD30BE16E9F9FE64EAC0D00E),[百度网盘](https://pan.baidu.com/s/15q0fBh4gRtvpcFAO1Anv4g)(pwd:fr82)
-* 如果需要训练，请将Pretained Model放在/ML_Homework/data/pretrained_model
-
-### Data Preparation
-
-* 请将标注文件放在/ML_Homework/data/VOCdevkit2007/VOC2007/Annotations
-* 将图片放在/ML_Homework/data/VOCdevkit2007/VOC2007/JPEGImages
-* 将txt文档放在/ML_Homework/data/VOCdevkit2007/VOC2007/ImageSets/Main
-
 ### Our Model
 
 * FocalLoss faster-rcnn(ResNet101): [北航云盘](https://bhpan.buaa.edu.cn:443/link/27C3DF0CEB64E8C4C9C0373BAE355B09),[百度网盘](https://pan.baidu.com/s/1HLT2HWZ8Ch_rvG-q94B2Gw)(pwd:bo9p)
-* 请将Model放在/ML_Homework/models/res101/pascal_voc
+* 请将Model放在/ML_Homework/model
 
 ## Compilation
 
@@ -67,10 +55,6 @@ cd lib
 sh make.sh
 ```
 
-It will compile all the modules you need, including NMS, ROI_Pooing, ROI_Align and ROI_Crop. The default version is compiled with Python 2.7, please compile by yourself if you are using a different python version.
-
-As pointed out in this [issue](https://github.com/jwyang/faster-rcnn.pytorch/issues/16), if you encounter some error during the compilation, you might miss to export the CUDA paths to your environment.
-
 ## Train
 ```
 CUDA_VISIBLE_DEVICES=$GPU_ID python trainval_net.py --net res101 --bs 4 --nw 4  --cuda
@@ -78,5 +62,5 @@ CUDA_VISIBLE_DEVICES=$GPU_ID python trainval_net.py --net res101 --bs 4 --nw 4  
 
 ## Test
 ```
-python test_net.py --net res101 --checksession 1 --checkepoch 8 --checkpoint 2199  --cuda
+python test.py  --cuda
 ```
