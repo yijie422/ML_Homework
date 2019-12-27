@@ -165,7 +165,7 @@ if __name__ == '__main__':
     'faster_rcnn_1_8_2199.pth')
 
   pascal_classes = np.asarray(['__background__',
-                       'coreless', 'core'])
+                       'core', 'coreless'])
 
   # initilize the network here.
   if args.net == 'vgg16':
